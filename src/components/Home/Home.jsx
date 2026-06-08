@@ -13,27 +13,22 @@ import Solutions from './Solutions';
 import Testimonials from './Testimonials';
 
 const Home = () => {
-
-
-
-    return (
-        <section>
-            <Hero />
-            <CallToAction />
-            <HomeServices />
-            <Solutions />
-            <Featured />
-            <HomeAppointment />
-            <Gallery />
-            <AppDownload />
-            <Testimonials />
-            <FAQs />
-            <Pricing />
-            <ContactForm />
-        </section>
-    );
+  return (
+    <section>
+      <Hero />
+      <CallToAction />
+      <HomeServices />
+      <Solutions />
+      <Featured />
+      <HomeAppointment />
+      <Gallery />
+      <AppDownload />
+      <Testimonials />
+      <FAQs />
+      <Pricing />
+      <ContactForm />
+    </section>
+  );
 };
 
 export default Home;
-
-

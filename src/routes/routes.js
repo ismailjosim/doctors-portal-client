@@ -18,75 +18,91 @@ import ManageDoctors from '../components/ManageDoctors/ManageDoctors';
 import Payment from '../components/Payment/Payment';
 import TeamPage from '../components/Team/TeamPage';
 
-
 const routes = createBrowserRouter([
-    {
+  {
+    path: '/',
+    element: <Main />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
         path: '/',
-        element: <Main />,
-        errorElement: <ErrorPage />,
-        children: [
-            {
-                path: '/',
-                element: <Home />
-            },
-            {
-                path: '/about',
-                element: <About />
-            },
-            {
-                path: '/appointment',
-                element: <Appointments />
-            },
-            {
-                path: '/reviews',
-                element: <Reviews />
-            },
-            {
-                path: '/team',
-                element: <TeamPage />
-            },
-            {
-                path: '/contact',
-                element: <Contact />
-            },
-            {
-                path: '/login',
-                element: <UserLogin />
-            },
-            {
-                path: '/register',
-                element: <UserSignUp />
-            }
-        ]
-    },
-    {
+        element: <Home />,
+      },
+      {
+        path: '/about',
+        element: <About />,
+      },
+      {
+        path: '/appointment',
+        element: <Appointments />,
+      },
+      {
+        path: '/reviews',
+        element: <Reviews />,
+      },
+      {
+        path: '/team',
+        element: <TeamPage />,
+      },
+      {
+        path: '/contact',
+        element: <Contact />,
+      },
+      {
+        path: '/login',
+        element: <UserLogin />,
+      },
+      {
+        path: '/register',
+        element: <UserSignUp />,
+      },
+    ],
+  },
+  {
+    path: '/dashboard',
+    errorElement: <ErrorPage />,
+    element: (
+      <Private>
+        <DashboardLayout />
+      </Private>
+    ),
+    children: [
+      {
         path: '/dashboard',
-        errorElement: <ErrorPage />,
-        element: <Private><DashboardLayout /></Private>,
-        children: [
-            {
-                path: '/dashboard',
-                element: <MyAppointment />
-            },
-            {
-                path: '/dashboard/users',
-                element: <AdminRoute><AllUsers /></AdminRoute>
-            },
-            {
-                path: '/dashboard/addadoctor',
-                element: <AdminRoute><AddDoctor /></AdminRoute>
-            },
-            {
-                path: '/dashboard/managedoctors',
-                element: <AdminRoute><ManageDoctors /></AdminRoute>
-            },
-            {
-                path: '/dashboard/payment/:id',
-                element: <Payment />,
-                loader: ({ params }) => fetch(`https://doctor-portal-server-tawny.vercel.app/booking/${ params.id }`)
-            }
-        ]
-    }
-])
+        element: <MyAppointment />,
+      },
+      {
+        path: '/dashboard/users',
+        element: (
+          <AdminRoute>
+            <AllUsers />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: '/dashboard/addadoctor',
+        element: (
+          <AdminRoute>
+            <AddDoctor />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: '/dashboard/managedoctors',
+        element: (
+          <AdminRoute>
+            <ManageDoctors />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: '/dashboard/payment/:id',
+        element: <Payment />,
+        loader: ({ params }) =>
+          fetch(`https://doctor-portal-server-tawny.vercel.app/booking/${params.id}`),
+      },
+    ],
+  },
+]);
 
 export default routes;

@@ -5,17 +5,15 @@ import History from './AboutSections/History';
 import PageHeader from './AboutSections/PageHeader';
 import Team from './AboutSections/Team';
 const About = () => {
-
-    return (
-        <div>
-            <PageHeader title="about us" />
-            <History />
-            <Advantages />
-            <CTA />
-            <Team />
-
-        </div>
-    );
+  return (
+    <div>
+      <PageHeader title="about us" />
+      <History />
+      <Advantages />
+      <CTA />
+      <Team />
+    </div>
+  );
 };
 
 export default About;
