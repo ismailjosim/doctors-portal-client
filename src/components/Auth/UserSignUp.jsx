@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaGoogle, FaShieldAlt, FaTooth } from 'react-icons/fa';
+import { FaShieldAlt, FaTooth } from 'react-icons/fa';
 import { AuthContext } from '../../Contexts/AuthProvider';
 import useToken from '../../hooks/useToken';
 import loginImg from '../../assets/images/login.png';
+import SocialLogin from './SocialLogin';
 
 const UserSignUp = () => {
   const {
@@ -14,6 +15,7 @@ const UserSignUp = () => {
   } = useForm();
   const { UserRegister, updateUserInfo } = useContext(AuthContext);
 
+  const [signupError, setSignupError] = useState('');
   const [newUserEmail, setNewUserEmail] = useState('');
   const [token] = useToken(newUserEmail);
   const navigate = useNavigate();
@@ -26,6 +28,7 @@ const UserSignUp = () => {
 
   // TODO: User Login Function
   const onSubmit = (data) => {
+    setSignupError('');
     // 1. Create New User
     UserRegister(data.email, data.password)
       .then((result) => {
@@ -38,12 +41,13 @@ const UserSignUp = () => {
         updateUserInfo(profile)
           .then(() => {
             // 3. save user email & pass to database
-            saveUserInfo(user.displayName, user.email);
+            saveUserInfo(data.name, user.email);
           })
           .catch((error) => console.log(error.message));
       })
       .catch((error) => {
         console.log(error.message);
+        setSignupError(error.message);
       });
   };
 
@@ -131,6 +135,7 @@ const UserSignUp = () => {
                 {errors.password && (
                   <p className="mt-1 font-medium text-error">{errors.password?.message}</p>
                 )}
+                {signupError && <p className="my-2 text-base text-error">{signupError}</p>}
               </div>
 
               <button type="submit" className="btn btn-primary w-full text-white">
@@ -140,10 +145,11 @@ const UserSignUp = () => {
 
             <div className="divider my-6 text-secondary/40">or</div>
 
-            <button type="button" className="btn btn-outline w-full gap-3 hover:text-white">
-              <FaGoogle />
-              Continue with Google
-            </button>
+            <SocialLogin
+              setLoginError={setSignupError}
+              setLoginUserEmail={setNewUserEmail}
+              saveUserInfo={saveUserInfo}
+            />
 
             <div className="mt-6 rounded-lg bg-[#eef5f4] p-4 text-center text-sm">
               <span className="text-secondary/70">Already have an account?</span>{' '}

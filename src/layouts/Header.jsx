@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { FaRegUser, FaSignOutAlt, FaTachometerAlt, FaUserCircle } from 'react-icons/fa';
 import { AuthContext } from '../Contexts/AuthProvider';
 import logo from '../assets/images/logo.png';
 
@@ -8,9 +9,66 @@ const Header = () => {
 
   const handleUserLogout = () => {
     userLogout()
-      .then((result) => {})
+      .then(() => {
+        localStorage.removeItem('userAccessToken');
+      })
       .catch((error) => console.log(error.message));
   };
+
+  const userInitial = user?.displayName?.charAt(0) || user?.email?.charAt(0) || 'U';
+
+  const userDropdown = user?.uid ? (
+    <div className="dropdown dropdown-end">
+      <label
+        tabIndex={0}
+        className="avatar btn btn-circle btn-ghost h-11 w-11 overflow-hidden border border-primary/15 bg-[#eef5f4]"
+      >
+        {user?.photoURL ? (
+          <img src={user.photoURL} alt={user.displayName || 'User profile'} />
+        ) : (
+          <span className="text-base font-bold uppercase text-primary">{userInitial}</span>
+        )}
+      </label>
+      <ul
+        tabIndex={0}
+        className="menu dropdown-content mt-3 w-64 rounded-lg border border-primary/10 bg-base-100 p-2 shadow-xl"
+      >
+        <li className="pointer-events-none border-b border-primary/10 px-3 py-2">
+          <div className="flex items-center gap-3 p-0">
+            <FaUserCircle className="text-2xl text-primary" />
+            <div className="min-w-0">
+              <p className="truncate font-semibold text-secondary">
+                {user.displayName || 'Doctors Portal User'}
+              </p>
+              <p className="truncate text-xs font-normal text-secondary/60">{user.email}</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <Link to="/dashboard/profile">
+            <FaRegUser />
+            User Profile
+          </Link>
+        </li>
+        <li>
+          <Link to="/dashboard">
+            <FaTachometerAlt />
+            Dashboard
+          </Link>
+        </li>
+        <li>
+          <button onClick={handleUserLogout}>
+            <FaSignOutAlt />
+            Logout
+          </button>
+        </li>
+      </ul>
+    </div>
+  ) : (
+    <Link to="/login" className="btn btn-ghost">
+      Login
+    </Link>
+  );
 
   const menuItems = (
     <>
@@ -29,25 +87,6 @@ const Header = () => {
       <li>
         <Link to="/contact">Contact</Link>
       </li>
-      {user?.uid ? (
-        <>
-          <li>
-            <p className="text-secondary/70">{user.displayName}</p>
-          </li>
-          <li>
-            <Link to="/dashboard">Dashboard</Link>
-          </li>
-          <li>
-            <button onClick={handleUserLogout} className="btn btn-sm btn-primary text-white">
-              Logout
-            </button>
-          </li>
-        </>
-      ) : (
-        <li>
-          <Link to="/login">Login</Link>
-        </li>
-      )}
     </>
   );
 
@@ -73,7 +112,6 @@ const Header = () => {
         <div className="navbar-start min-w-fit">
           <Link to="/" className="flex items-center gap-3">
             <img src={logo} alt="Doctors Portal" className="h-11 w-auto" />
-            <span className="hidden text-lg font-bold text-secondary sm:block">Doctors Portal</span>
           </Link>
         </div>
         <div className="navbar-end">
@@ -83,6 +121,7 @@ const Header = () => {
           <Link to="/appointment" className="btn btn-primary ml-4 hidden text-white lg:inline-flex">
             Schedule Now
           </Link>
+          <div className="ml-2 hidden lg:block">{userDropdown}</div>
           <div className="dropdown dropdown-bottom dropdown-end">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
@@ -102,8 +141,14 @@ const Header = () => {
             </label>
             <ul className="menu menu-compact dropdown-content mt-3 w-56 rounded-lg border border-primary/10 bg-base-100 p-2 shadow-xl">
               {menuItems}
+              {!user?.uid && (
+                <li>
+                  <Link to="/login">Login</Link>
+                </li>
+              )}
             </ul>
           </div>
+          <div className="ml-1 lg:hidden">{user?.uid && userDropdown}</div>
         </div>
       </div>
     </header>

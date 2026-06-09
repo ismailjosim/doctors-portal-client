@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaGoogle, FaLock, FaRegCalendarCheck } from 'react-icons/fa';
+import { FaLock, FaRegCalendarCheck } from 'react-icons/fa';
 import { AuthContext } from '../../Contexts/AuthProvider';
 import useToken from '../../hooks/useToken';
 import loginImg from '../../assets/images/login.png';
+import SocialLogin from './SocialLogin';
 
 const UserLogin = () => {
   const {
@@ -135,10 +136,7 @@ const UserLogin = () => {
 
             <div className="divider my-6 text-secondary/40">or</div>
 
-            <button type="button" className="btn btn-outline w-full gap-3 hover:text-white">
-              <FaGoogle />
-              Continue with Google
-            </button>
+            <SocialLogin setLoginError={setLoginError} setLoginUserEmail={setLoginUserEmail} />
 
             <div className="mt-6 rounded-lg bg-[#eef5f4] p-4 text-center text-sm">
               <span className="text-secondary/70">New to Doctors Portal?</span>{' '}

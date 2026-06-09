@@ -17,6 +17,7 @@ import AddDoctor from '../components/AddDoctor/AddDoctor';
 import ManageDoctors from '../components/ManageDoctors/ManageDoctors';
 import Payment from '../components/Payment/Payment';
 import TeamPage from '../components/Team/TeamPage';
+import UserProfile from '../components/Dashboard/UserProfile';
 
 const routes = createBrowserRouter([
   {
@@ -70,6 +71,10 @@ const routes = createBrowserRouter([
       {
         path: '/dashboard',
         element: <MyAppointment />,
+      },
+      {
+        path: '/dashboard/profile',
+        element: <UserProfile />,
       },
       {
         path: '/dashboard/users',
