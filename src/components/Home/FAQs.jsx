@@ -58,7 +58,7 @@ const FAQItem = ({ question, answer }) => (
         <IoIosAddCircle className="text-2xl text-white bg-primary rounded-full transition-transform duration-300 group-open:rotate-45" />
       </summary>
 
-      <p className="mt-3 text-neutral-600">{answer}</p>
+      <p className="mt-3 text-secondary/70">{answer}</p>
     </details>
   </div>
 );
@@ -73,7 +73,7 @@ const FAQs = () => {
       </div>
 
       <div className="bg-white px-5 rounded-md shadow-sm lg:w-8/12 w-11/12 mx-auto">
-        <div className="divide-y divide-neutral-200">
+        <div className="divide-y divide-primary/10">
           {faqData.map((faq, index) => (
             <FAQItem key={index} question={faq.question} answer={faq.answer} />
           ))}

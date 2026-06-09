@@ -7,6 +7,7 @@ import 'react-day-picker/dist/style.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ThemeProvider } from 'next-themes';
 
 const queryClient = new QueryClient();
 
@@ -14,9 +15,16 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
   <QueryClientProvider client={queryClient}>
-    <AuthProvider>
-      <App />
-    </AuthProvider>
+    <ThemeProvider
+      attribute="data-theme"
+      defaultTheme="mytheme"
+      enableSystem={false}
+      themes={['mytheme', 'darktheme']}
+    >
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </ThemeProvider>
   </QueryClientProvider>
   // </React.StrictMode>
 );

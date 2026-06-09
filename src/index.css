@@ -16,6 +16,61 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html[data-theme='darktheme'] body {
+  color: #e6f1f2;
+  background:
+    radial-gradient(circle at top left, rgba(43, 179, 189, 0.12), transparent 28rem),
+    linear-gradient(180deg, #101820 0%, #17212b 42%, #101820 100%);
+}
+
+html[data-theme='darktheme'] .bg-white {
+  background-color: #14202a;
+}
+
+html[data-theme='darktheme'] .bg-white\/95 {
+  background-color: rgba(20, 32, 42, 0.95);
+}
+
+html[data-theme='darktheme'] .bg-\[\#eef5f4\],
+html[data-theme='darktheme'] .bg-\[\#f6faf9\] {
+  background-color: #1a2832;
+}
+
+html[data-theme='darktheme'] .text-secondary,
+html[data-theme='darktheme'] .text-gray-700,
+html[data-theme='darktheme'] .text-gray-800 {
+  color: #e6f1f2;
+}
+
+html[data-theme='darktheme'] .text-secondary\/70,
+html[data-theme='darktheme'] .text-gray-600,
+html[data-theme='darktheme'] .text-neutral-600 {
+  color: rgba(230, 241, 242, 0.72);
+}
+
+html[data-theme='darktheme'] .text-secondary\/65,
+html[data-theme='darktheme'] .text-secondary\/60 {
+  color: rgba(230, 241, 242, 0.64);
+}
+
+html[data-theme='darktheme'] .text-secondary\/40 {
+  color: rgba(230, 241, 242, 0.44);
+}
+
+html[data-theme='darktheme'] .divide-neutral-200 > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgba(230, 241, 242, 0.12);
+}
+
+html[data-theme='darktheme'] .table :where(thead, tbody, tfoot) :where(tr:not(:last-child)) {
+  border-color: rgba(230, 241, 242, 0.12);
+}
+
+html[data-theme='darktheme'] .shadow-lg,
+html[data-theme='darktheme'] .shadow-xl,
+html[data-theme='darktheme'] .shadow-2xl {
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.32);
+}
+
 html {
   scroll-behavior: smooth;
 }

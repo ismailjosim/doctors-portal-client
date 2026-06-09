@@ -77,7 +77,7 @@ const Pricing = () => {
               className="shadow-lg hover:shadow-sm transition-all duration-500 p-5 rounded-lg border-t-4 border-primary bg-white"
             >
               <img src={data.picture} alt="" />
-              <p className="mt-4 text-3xl text-gray-700 font-medium">{data.name}</p>
+              <p className="mt-4 text-3xl text-secondary font-medium">{data.name}</p>
               <div className="mr-10 my-5">
                 <ul className="grid grid-cols-1 gap-4">
                   {data.featured.map((feature, idx) => {

@@ -22,35 +22,35 @@ const Gallery = () => {
               <img
                 src={gallery01}
                 alt=""
-                className="w-full h-full col-span-2 row-span-2 rounded shadow-sm min-h-96 md:col-start-3 md:row-start-1 dark:bg-gray-500 aspect-square"
+                className="w-full h-full col-span-2 row-span-2 rounded shadow-sm min-h-96 md:col-start-3 md:row-start-1 bg-base-100 aspect-square"
               />
             </PhotoView>
             <PhotoView src={gallery02}>
               <img
                 src={gallery02}
                 alt=""
-                className="w-full h-full rounded shadow-sm min-h-48 dark:bg-gray-500 aspect-square"
+                className="w-full h-full rounded shadow-sm min-h-48 bg-base-100 aspect-square"
               />
             </PhotoView>
             <PhotoView src={gallery03}>
               <img
                 src={gallery03}
                 alt=""
-                className="w-full h-full rounded shadow-sm min-h-48 dark:bg-gray-500 aspect-square"
+                className="w-full h-full rounded shadow-sm min-h-48 bg-base-100 aspect-square"
               />
             </PhotoView>
             <PhotoView src={gallery04}>
               <img
                 src={gallery04}
                 alt=""
-                className="w-full h-full rounded shadow-sm min-h-48 dark:bg-gray-500 aspect-square"
+                className="w-full h-full rounded shadow-sm min-h-48 bg-base-100 aspect-square"
               />
             </PhotoView>
             <PhotoView src={gallery05}>
               <img
                 src={gallery05}
                 alt=""
-                className="w-full h-full rounded shadow-sm min-h-48 dark:bg-gray-500 aspect-square"
+                className="w-full h-full rounded shadow-sm min-h-48 bg-base-100 aspect-square"
               />
             </PhotoView>
           </PhotoProvider>

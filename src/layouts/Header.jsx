@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaRegUser, FaSignOutAlt, FaTachometerAlt, FaUserCircle } from 'react-icons/fa';
 import { AuthContext } from '../Contexts/AuthProvider';
 import logo from '../assets/images/logo.png';
+import ThemeToggle from '../components/Theme/ThemeToggle';
 
 const Header = () => {
   const { user, userLogout } = useContext(AuthContext);
@@ -121,6 +122,9 @@ const Header = () => {
           <Link to="/appointment" className="btn btn-primary ml-4 hidden text-white lg:inline-flex">
             Schedule Now
           </Link>
+          <div className="ml-2">
+            <ThemeToggle />
+          </div>
           <div className="ml-2 hidden lg:block">{userDropdown}</div>
           <div className="dropdown dropdown-bottom dropdown-end">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">

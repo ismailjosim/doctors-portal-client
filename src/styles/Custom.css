@@ -99,3 +99,31 @@
     --rdp-background-color: rgba(14, 124, 134, 0.12);
     margin: 0;
 }
+
+html[data-theme='darktheme'] .custom-bg {
+    background-image:
+        linear-gradient(115deg, rgba(16, 24, 32, 0.94), rgba(23, 33, 43, 0.86)),
+        url(../assets/images/bg.png);
+}
+
+html[data-theme='darktheme'] .glass-card {
+    border-color: rgba(43, 179, 189, 0.18);
+    background: rgba(20, 32, 42, 0.82);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+}
+
+html[data-theme='darktheme'] .section-kicker,
+html[data-theme='darktheme'] .menu :where(li > *:not(ul):focus),
+html[data-theme='darktheme'] .menu :where(li > *:not(ul):hover) {
+    color: #2bb3bd;
+}
+
+html[data-theme='darktheme'] .menu :where(li > *:not(ul):focus),
+html[data-theme='darktheme'] .menu :where(li > *:not(ul):hover) {
+    background-color: rgba(43, 179, 189, 0.13);
+}
+
+html[data-theme='darktheme'] .rdp {
+    --rdp-accent-color: #2bb3bd;
+    --rdp-background-color: rgba(43, 179, 189, 0.16);
+}

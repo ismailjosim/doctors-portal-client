@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 
 const ErrorPage = () => {
   return (
-    <section className="flex items-center h-full sm:p-16 dark:bg-gray-900 dark:text-gray-100">
+    <section className="flex h-full items-center bg-base-100 text-secondary sm:p-16">
       <div className="container flex flex-col items-center justify-center px-5 mx-auto my-8 space-y-8 text-center sm:max-w-md">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512"
-          className="w-40 h-40 dark:text-gray-600"
+          className="h-40 w-40 text-secondary/40"
         >
           <path
             fill="currentColor"
@@ -27,7 +27,7 @@ const ErrorPage = () => {
         <p className="text-3xl">Looks like our services are currently offline</p>
         <Link
           to="/"
-          className="px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
+          className="rounded bg-primary px-8 py-3 font-semibold text-white"
         >
           Back to homepage
         </Link>

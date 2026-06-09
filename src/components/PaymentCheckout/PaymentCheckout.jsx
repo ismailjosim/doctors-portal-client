@@ -3,6 +3,7 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import { useTheme } from 'next-themes';
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
@@ -15,7 +16,9 @@ const PaymentCheckout = ({ booking }) => {
   const [clientSecret, setClientSecret] = useState('');
   const stripe = useStripe();
   const elements = useElements();
+  const { theme } = useTheme();
   const { _id, price, patientName, email } = booking;
+  const isDark = theme === 'darktheme';
 
   // Header :  Create PaymentIntent as soon as the page loads
   useEffect(() => {
@@ -115,9 +118,9 @@ const PaymentCheckout = ({ booking }) => {
               base: {
                 fontSize: '16px',
                 fontWeight: 'bold',
-                color: '#19D3AE',
+                color: isDark ? '#E6F1F2' : '#0E7C86',
                 '::placeholder': {
-                  color: '#3A4256',
+                  color: isDark ? '#9FB2B8' : '#3A4256',
                   fontWeight: 'bold',
                 },
               },
