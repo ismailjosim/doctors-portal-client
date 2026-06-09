@@ -14,16 +14,22 @@
 
 .appointment-custom-bg,
 .contact-bg {
-    background-image: url(../assets/images/appointment.png);
+    background-image:
+        linear-gradient(120deg, rgba(23, 32, 38, 0.92), rgba(14, 124, 134, 0.82)),
+        url(../assets/images/appointment.png);
 }
 
 .custom-bg {
-    background-image: url(../assets/images/bg.png);
+    background-image:
+        linear-gradient(115deg, rgba(251, 252, 250, 0.96), rgba(244, 248, 247, 0.85)),
+        url(../assets/images/bg.png);
 
 }
 
 .bg-footer-custom {
-    background-image: url(../assets/images/footer.png);
+    background-image:
+        linear-gradient(145deg, rgba(23, 32, 38, 0.98), rgba(34, 49, 63, 0.94)),
+        url(../assets/images/footer.png);
 
 }
 
@@ -32,14 +38,64 @@
 }
 
 .section_banner {
-    background-image: url(../assets/images/section-bg.jpg);
+    background-image:
+        linear-gradient(110deg, rgba(23, 32, 38, 0.82), rgba(14, 124, 134, 0.68)),
+        url(../assets/images/section-bg.jpg);
 }
 
 
 .cta_bg {
-    background-image: url(../assets/images/bg-2.jpg);
+    background-image:
+        linear-gradient(120deg, rgba(14, 124, 134, 0.9), rgba(23, 32, 38, 0.76)),
+        url(../assets/images/bg-2.jpg);
 }
 
 .team_section_banner {
-    background-image: url(../assets/images/bg-1.jpg);
+    background-image:
+        linear-gradient(110deg, rgba(23, 32, 38, 0.84), rgba(14, 124, 134, 0.7)),
+        url(../assets/images/bg-1.jpg);
+}
+
+.page-shell {
+    width: min(1180px, calc(100% - 2rem));
+    margin-inline: auto;
+}
+
+.glass-card {
+    border: 1px solid rgba(14, 124, 134, 0.13);
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: 0 20px 60px rgba(23, 32, 38, 0.08);
+    backdrop-filter: blur(18px);
+}
+
+.section-kicker {
+    color: #0e7c86;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.btn {
+    border-radius: 0.5rem;
+    text-transform: none;
+}
+
+.card,
+.input,
+.textarea,
+.select,
+.modal-box {
+    border-radius: 0.5rem;
+}
+
+.menu :where(li > *:not(ul):focus),
+.menu :where(li > *:not(ul):hover) {
+    background-color: rgba(14, 124, 134, 0.1);
+    color: #0e7c86;
+}
+
+.rdp {
+    --rdp-accent-color: #0e7c86;
+    --rdp-background-color: rgba(14, 124, 134, 0.12);
+    margin: 0;
 }

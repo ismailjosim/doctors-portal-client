@@ -32,29 +32,29 @@ const Advantages = () => {
   const slideImages = [img01, img02, img03, img04, img05];
 
   return (
-    <div className="bg-slate-200 py-20">
+    <div className="bg-[#eef5f4] py-20">
       <SectionHeading heading={heading}></SectionHeading>
-      <div className="flex lg:flex-row md:flex-row flex-col gap-10 md:gap-5 lg:gap-20 w-11/12 mx-auto">
-        <div className="w-full lg:w-1/2 md:w-1/2">
+      <div className="page-shell grid gap-10 md:grid-cols-2 lg:gap-16">
+        <div className="overflow-hidden rounded-lg shadow-xl">
           <Slider {...settings}>
             {slideImages.map((slide, idx) => (
               <div key={idx}>
-                <img className="h-fit" src={slide} alt="" />
+                <img className="h-[380px] w-full object-cover" src={slide} alt="Clinic interior" />
               </div>
             ))}
           </Slider>
         </div>
-        <div className="w-full lg:w-1/2 md:w-1/2">
-          <p className="lg:w-9/12 w-full">
+        <div className="flex flex-col justify-center">
+          <p className="leading-8 text-secondary/70">
             Our dental clinic is a modern and comfortable facility, with a professional dental team
             who will take time to listen to your concerns, desired outcomes, and provide you with
             high quality dental care.
           </p>
-          <ul className="my-10">
+          <ul className="my-8 grid gap-3 sm:grid-cols-2">
             {specialty.map((feature, idx) => {
               return (
-                <li key={idx} className="flex items-center gap-2 mb-2">
-                  <TiTick className="text-primary text-lg" />
+                <li key={idx} className="flex items-center gap-2 rounded-lg bg-white p-3 shadow-sm">
+                  <TiTick className="text-lg text-primary" />
                   <span>{feature}</span>
                 </li>
               );

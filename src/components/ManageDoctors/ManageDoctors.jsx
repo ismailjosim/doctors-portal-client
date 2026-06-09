@@ -19,7 +19,7 @@ const ManageDoctors = () => {
     queryKey: ['doctors'],
     queryFn: async () => {
       try {
-        const res = await fetch('https://doctor-portal-server-tawny.vercel.app/doctors', {
+        const res = await fetch(`${process.env.REACT_APP_BACKEND_API_URL}/doctors`, {
           headers: {
             authorization: `bearer ${localStorage.getItem('userAccessToken')}`,
           },
@@ -39,7 +39,7 @@ const ManageDoctors = () => {
   const handleDeleteDoctor = (doctor) => {
     // console.log('inside manage doctor', doctor);
 
-    fetch(`https://doctor-portal-server-tawny.vercel.app/doctors/${doctor._id}`, {
+    fetch(`${process.env.REACT_APP_BACKEND_API_URL}/doctors/${doctor._id}`, {
       method: 'DELETE',
       headers: {
         authorization: `bearer ${localStorage.getItem('userAccessToken')}`,
@@ -57,19 +57,22 @@ const ManageDoctors = () => {
   };
 
   return (
-    <div>
-      <h3>All doctors {doctors?.length}</h3>
+    <div className="rounded-lg border border-primary/10 bg-white p-6 shadow-xl">
+      <div className="mb-6">
+        <p className="section-kicker text-xs">Clinical team</p>
+        <h3 className="mt-2 text-2xl font-bold text-secondary">All Doctors ({doctors?.length})</h3>
+      </div>
 
-      <div className="overflow-x-auto w-full">
+      <div className="w-full overflow-x-auto rounded-lg border border-primary/10">
         <table className="table w-full">
           <thead>
             <tr>
               <th></th>
               <th>Picture</th>
               <th>Name</th>
-              <th>specialties</th>
-              <th>status</th>
-              <th>option</th>
+              <th>Specialty</th>
+              <th>Status</th>
+              <th>Option</th>
             </tr>
           </thead>
           <tbody>
@@ -87,7 +90,7 @@ const ManageDoctors = () => {
                   <td className="font-semibold">{doctor.name}</td>
                   <td>{doctor.specialty}</td>
                   <th>
-                    <button className="btn btn-ghost btn-xs text-green-600">active</button>
+                    <button className="btn btn-ghost btn-xs text-success">Active</button>
                   </th>
                   <td>
                     <label

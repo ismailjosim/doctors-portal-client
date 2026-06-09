@@ -4,13 +4,13 @@ const CtaCard = ({ data }) => {
   const { heading, bodyText, bgClass, img } = data;
   return (
     <div
-      className={`${bgClass} text-white lg:py-12 md:py-12 py-8 lg:px-10 md:px-8 px-4 rounded-md shadow-xl`}
+      className={`${bgClass} rounded-lg p-6 text-white shadow-xl`}
     >
-      <div className="flex lg:flex-row flex-col justify-around items-center gap-5">
-        <img className="mx-w-14" src={img} alt={heading} />
+      <div className="flex items-center gap-5">
+        <img className="h-12 w-12" src={img} alt={heading} />
         <div>
-          <h2 className="text-xl font-bold leading-7">{heading}</h2>
-          <p>{bodyText}</p>
+          <h2 className="text-lg font-bold leading-7">{heading}</h2>
+          <p className="text-sm text-white/80">{bodyText}</p>
         </div>
       </div>
     </div>

@@ -5,7 +5,7 @@ import Header from './Header';
 
 const Main = () => {
   return (
-    <div>
+    <div className="min-h-screen overflow-hidden">
       <Header />
       <Outlet />
       <Footer />

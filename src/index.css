@@ -8,8 +8,21 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
+  color: #172026;
+  background:
+    radial-gradient(circle at top left, rgba(14, 124, 134, 0.08), transparent 28rem),
+    linear-gradient(180deg, #fbfcfa 0%, #f4f8f7 42%, #fbfcfa 100%);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  color: #ffffff;
+  background: #0e7c86;
 }
 
 code {

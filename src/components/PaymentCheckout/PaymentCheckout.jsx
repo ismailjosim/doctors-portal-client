@@ -19,7 +19,7 @@ const PaymentCheckout = ({ booking }) => {
 
   // Header :  Create PaymentIntent as soon as the page loads
   useEffect(() => {
-    fetch('https://doctor-portal-server-tawny.vercel.app/create-payment-intent', {
+    fetch(`${process.env.REACT_APP_BACKEND_API_URL}/create-payment-intent`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -85,7 +85,7 @@ const PaymentCheckout = ({ booking }) => {
       };
 
       // LINK: Store Payment Info to database
-      fetch('https://doctor-portal-server-tawny.vercel.app/payments', {
+      fetch(`${process.env.REACT_APP_BACKEND_API_URL}/payments`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -109,7 +109,7 @@ const PaymentCheckout = ({ booking }) => {
     <>
       <form onSubmit={handleSubmit}>
         <CardElement
-          className="m-5 border-2 border-accent p-3 rounded-full"
+          className="m-5 rounded-lg border border-primary/20 bg-white p-4"
           options={{
             style: {
               base: {
@@ -128,11 +128,11 @@ const PaymentCheckout = ({ booking }) => {
           }}
         />
         <button
-          className="btn btn-primary w-full md:w-auto lg:w-auto mt-10 text-white"
+          className="btn btn-primary mt-10 w-full text-white md:w-auto lg:w-auto"
           type="submit"
           disabled={!stripe || !clientSecret || processing}
         >
-          proceed Payment
+          Proceed to payment
         </button>
       </form>
 

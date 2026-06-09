@@ -11,30 +11,30 @@ const HomeServices = () => {
       title: 'Fluoride Treatment',
       image: fluoride,
       description:
-        'Fluoride varnish can be applied to both baby teeth and adult teeth by a dentist.',
+        'Protective enamel care for children and adults, planned around your prevention goals.',
     },
     {
       id: 2,
       title: 'Cavity Filling',
       image: cavity,
       description:
-        'Cavities are permanently damaged areas in the hard surface of your teeth that develop into tiny openings or holes.',
+        'Tooth-colored restorations that repair damage while preserving a natural bite and smile.',
     },
     {
       id: 3,
       title: 'Teeth Whitening',
       image: whitening,
       description:
-        'Tooth whitening or tooth bleaching is the process of lightening the color of human teeth.',
+        'Guided whitening options with shade planning, sensitivity checks, and dentist oversight.',
     },
   ];
   const heading = {
     primary: 'OUR SERVICES',
-    secondary: 'Services We Provide',
+    secondary: 'Care Designed Around Your Smile',
   };
 
   return (
-    <div className="mb-24 w-11/12 mx-auto">
+    <div className="page-shell mb-24">
       <SectionHeading heading={heading}></SectionHeading>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
         {servicesData.map((service) => (

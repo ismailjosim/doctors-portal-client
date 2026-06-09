@@ -15,39 +15,44 @@ const Header = () => {
   const menuItems = (
     <>
       <li>
-        <Link className="hover:btn-secondary rounded-md hover:text-white" to="/">
+        <Link to="/">
           Home
         </Link>
       </li>
       <li>
-        <Link className="hover:btn-secondary rounded-md hover:text-white" to="/about">
-          About US
+        <Link to="/about">
+          About
         </Link>
       </li>
       <li>
-        <Link className="hover:btn-secondary rounded-md hover:text-white" to="/appointment">
-          Appointment
+        <Link to="/appointment">
+          Book Visit
         </Link>
       </li>
       <li>
-        <Link className="hover:btn-secondary rounded-md hover:text-white" to="/contact">
-          Contact Us
+        <Link to="/team">
+          Team
+        </Link>
+      </li>
+      <li>
+        <Link to="/contact">
+          Contact
         </Link>
       </li>
       {user?.uid ? (
         <>
           <li>
-            <p className="uppercase">{user.displayName}</p>
+            <p className="text-secondary/70">{user.displayName}</p>
           </li>
           <li>
-            <Link className="hover:btn-secondary rounded-md hover:text-white" to="/dashboard">
+            <Link to="/dashboard">
               Dashboard
             </Link>
           </li>
           <li>
             <button
               onClick={handleUserLogout}
-              className="hover:btn-secondary btn-primary text-white rounded-md"
+              className="btn btn-sm btn-primary text-white"
             >
               Logout
             </button>
@@ -55,7 +60,7 @@ const Header = () => {
         </>
       ) : (
         <li>
-          <Link className="hover:btn-secondary rounded-md hover:text-white" to="/login">
+          <Link to="/login">
             Login
           </Link>
         </li>
@@ -64,8 +69,8 @@ const Header = () => {
   );
 
   return (
-    <header className="border-b-2">
-      <div className="navbar font-semibold lg:w-11/12 mx-auto">
+    <header className="sticky top-0 z-40 border-b border-primary/10 bg-base-100/90 backdrop-blur-xl">
+      <div className="navbar page-shell min-h-[76px] px-0 font-semibold">
         <label htmlFor="dashboard-drawer" tabIndex={2} className="btn btn-ghost lg:hidden">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -82,15 +87,19 @@ const Header = () => {
             />
           </svg>
         </label>
-        <div className="navbar-start">
-          <Link to="/">
-            <img src={logo} alt="Dental" />
+        <div className="navbar-start min-w-fit">
+          <Link to="/" className="flex items-center gap-3">
+            <img src={logo} alt="Doctors Portal" className="h-11 w-auto" />
+            <span className="hidden text-lg font-bold text-secondary sm:block">Doctors Portal</span>
           </Link>
         </div>
         <div className="navbar-end">
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal p-0 gap-3">{menuItems}</ul>
+            <ul className="menu menu-horizontal gap-1 p-0 text-sm">{menuItems}</ul>
           </div>
+          <Link to="/appointment" className="btn btn-primary ml-4 hidden text-white lg:inline-flex">
+            Schedule Now
+          </Link>
           <div className="dropdown dropdown-bottom dropdown-end">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
@@ -108,7 +117,7 @@ const Header = () => {
                 />
               </svg>
             </label>
-            <ul className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+            <ul className="menu menu-compact dropdown-content mt-3 w-56 rounded-lg border border-primary/10 bg-base-100 p-2 shadow-xl">
               {menuItems}
             </ul>
           </div>

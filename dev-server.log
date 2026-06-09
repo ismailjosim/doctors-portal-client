@@ -1,0 +1,22 @@
+
+> doctor-portal-client@0.1.0 start
+> react-scripts start
+
+[32m✔[0m [33mConsole Ninja[0m extension is connected to [33mWebpack[0m, see [36mhttps://tinyurl.com/2vt8jxzw[0m
+Starting the development server...
+
+
+[35m🌼 daisyUI components 2.39.1[0m [0m https://github.com/saadeghi/daisyui
+  [32m✔︎ Including:[0m [0m base, components, themes[1], utilities
+  
+Compiled successfully!
+
+You can now view doctor-portal-client in the browser.
+
+  Local:            http://localhost:3001
+  On Your Network:  http://172.19.176.1:3001
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
+
+webpack compiled [1m[32msuccessfully[39m[22m

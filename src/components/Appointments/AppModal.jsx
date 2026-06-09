@@ -26,7 +26,7 @@ const AppModal = ({ service, selectedDate, setService, refetch }) => {
       phone,
       price,
     };
-    fetch('https://doctor-portal-server-tawny.vercel.app/bookings', {
+    fetch(`${process.env.REACT_APP_BACKEND_API_URL}/bookings`, {
       method: 'post',
       headers: {
         'content-type': 'application/json',

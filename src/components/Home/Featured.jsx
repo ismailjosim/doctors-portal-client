@@ -3,24 +3,34 @@ import featuredImg from '../../assets/images/treatment.png';
 
 const Featured = () => {
   return (
-    <section className="lg:py-18 py-5 lg:mb-60">
-      <div className="container mx-auto flex lg:flex-row flex-col justify-center lg:gap-24 sm:gap-5">
-        <div className="flex items-center justify-center mx-12">
-          <img src={featuredImg} alt="" className="lg:h-[576px] h-full rounded-lg" />
+    <section className="py-12 lg:py-20">
+      <div className="page-shell grid items-center gap-12 lg:grid-cols-2">
+        <div className="overflow-hidden rounded-lg shadow-2xl">
+          <img src={featuredImg} alt="Dentist treating a patient" className="h-full w-full object-cover" />
         </div>
-        <div className="flex flex-col justify-center p-7 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
-          <h2 className="text-3xl font-bold sm:text-5xl">Exceptional Dental Care, on Your Terms</h2>
-          <p className="mt-6 mb-8 text-base sm:mb-12 text-left leading-6">
-            It is a long established fact that a reader will be distracted by the readable content
-            of a page when looking at its layout. The point of using Lorem Ipsum that it has a
-            more-or-less normal distribution of letters,as opposed to using 'Content here, content
-            here', making it look like readable English. Many desktop publishing packages and web
-            page
+        <div className="text-center lg:text-left">
+          <p className="section-kicker text-sm">Personalized treatment</p>
+          <h2 className="mt-3 text-3xl font-bold text-secondary sm:text-5xl">
+            Exceptional dental care, planned on your terms.
+          </h2>
+          <p className="mt-6 text-base leading-8 text-secondary/70">
+            From routine hygiene to restorative and cosmetic treatment, your dentist maps every
+            step clearly: what matters now, what can wait, and how each visit fits your schedule.
           </p>
-          <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-            <button className="btn btn-primary text-white bg-gradient-to-r from-primary to-accent">
-              Get Started
-            </button>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            <div className="rounded-lg border border-primary/10 bg-white p-5">
+              <h3 className="font-semibold text-secondary">Clear estimates</h3>
+              <p className="mt-2 text-sm text-secondary/65">Treatment pricing and next steps before you commit.</p>
+            </div>
+            <div className="rounded-lg border border-primary/10 bg-white p-5">
+              <h3 className="font-semibold text-secondary">Gentle visits</h3>
+              <p className="mt-2 text-sm text-secondary/65">Comfort-first care for nervous and busy patients.</p>
+            </div>
+          </div>
+          <div className="mt-8">
+            <a href="/appointment" className="btn btn-primary text-white">
+              Start with a consultation
+            </a>
           </div>
         </div>
       </div>

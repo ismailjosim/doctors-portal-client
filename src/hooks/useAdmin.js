@@ -6,7 +6,7 @@ const useAdmin = (email) => {
 
   useEffect(() => {
     if (email) {
-      fetch(`https://doctor-portal-server-tawny.vercel.app/users/admin/${email}`)
+      fetch(`${process.env.REACT_APP_BACKEND_API_URL}/users/admin/${email}`)
         .then((res) => res.json())
         .then((data) => {
           setIsAdmin(data.isAdmin);

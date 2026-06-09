@@ -17,7 +17,7 @@ const AddDoctor = () => {
   const { data: specialties = [], isLoading } = useQuery({
     queryKey: ['specialty'],
     queryFn: async () => {
-      const res = await fetch('https://doctor-portal-server-tawny.vercel.app/appointmentSpecialty');
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_API_URL}/appointmentSpecialty`);
       const data = await res.json();
       return data?.specialty;
     },
@@ -46,7 +46,7 @@ const AddDoctor = () => {
           };
 
           // save doctor info to the database
-          const url = 'https://doctor-portal-server-tawny.vercel.app/doctors';
+          const url = `${process.env.REACT_APP_BACKEND_API_URL}/doctors`;
           fetch(url, {
             method: 'POST',
             headers: {
@@ -70,11 +70,14 @@ const AddDoctor = () => {
   }
 
   return (
-    <div className="bg-slate-300 w-full h-full p-10">
-      <h3 className="text-3xl font-medium capitalize">add a doctor</h3>
+    <div className="rounded-lg border border-primary/10 bg-white p-6 shadow-xl">
+      <div className="mb-6">
+        <p className="section-kicker text-xs">Clinical team</p>
+        <h3 className="mt-2 text-2xl font-bold capitalize text-secondary">Add a doctor</h3>
+      </div>
 
-      <div className="w-1/2 rounded-lg bg-white mt-10">
-        <form onSubmit={handleSubmit(handleAddDoctor)} className="p-10">
+      <div className="max-w-2xl rounded-lg bg-[#f6faf9]">
+        <form onSubmit={handleSubmit(handleAddDoctor)} className="p-6">
           {/* TODO: input name */}
           <div className="form-control w-full">
             <label className="label">
@@ -86,7 +89,7 @@ const AddDoctor = () => {
               {...register('name', {
                 required: 'Name is Required',
               })}
-              className="input input-primary input-bordered w-full"
+              className="input input-bordered w-full"
             />
             {errors.name && <p className="text-error font-medium mt-1">{errors.name?.message}</p>}
           </div>
@@ -102,7 +105,7 @@ const AddDoctor = () => {
               {...register('email', {
                 required: 'Email is Required',
               })}
-              className="input input-primary input-bordered w-full"
+              className="input input-bordered w-full"
             />
 
             {errors.email && <p className="text-error font-medium mt-1">{errors.email?.message}</p>}
@@ -115,7 +118,7 @@ const AddDoctor = () => {
               <span className="label-text">Specialty</span>
             </label>
 
-            <select className="select select-accent w-full" {...register('specialty')}>
+            <select className="select select-bordered w-full" {...register('specialty')}>
               {specialties?.map((specialty) => {
                 return (
                   <option key={specialty._id} value={specialty.name}>
@@ -135,9 +138,9 @@ const AddDoctor = () => {
             <input
               type="file"
               {...register('image', {
-                required: 'image is Required',
+                required: 'Image is required',
               })}
-              className="input input-primary input-bordered w-full"
+              className="file-input file-input-bordered w-full"
             />
             {errors.image && <p className="text-error font-medium mt-1">{errors.image?.message}</p>}
           </div>

@@ -16,9 +16,7 @@ const AppointmentAvailable = ({ selectedDate }) => {
   } = useQuery({
     queryKey: ['appOptions', date],
     queryFn: async () => {
-      const res = await fetch(
-        `https://doctor-portal-server-tawny.vercel.app/appOptions?date=${date}`
-      );
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_API_URL}/appOptions?date=${date}`);
       const data = await res.json();
       return data?.options;
     },
@@ -29,11 +27,11 @@ const AppointmentAvailable = ({ selectedDate }) => {
   }
 
   return (
-    <section className="my-28">
-      <h2 className="text-xl text-primary font-medium text-center mt-5 mb-10">
+    <section className="page-shell my-20">
+      <h2 className="mb-10 mt-5 text-center text-2xl font-bold text-secondary">
         Available Appointments on {format(selectedDate, 'PP')}
       </h2>
-      <div className="lg:w-9/12 w-11/12 mx-auto grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {appOptions.map((option) => (
           <AppOption key={option._id} option={option} setService={setService}></AppOption>
         ))}

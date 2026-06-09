@@ -8,29 +8,29 @@ const CallToAction = () => {
     {
       id: 1,
       heading: 'Working Hours',
-      bodyText: 'From 8.00AM - To 6.00PM',
-      bgClass: 'bg-gradient-to-r from-primary to-accent',
+      bodyText: 'Mon-Sat, 8:00 AM - 6:00 PM',
+      bgClass: 'bg-primary',
       img: clock,
     },
     {
       id: 2,
-      heading: 'Visit our location',
-      bodyText: 'Brooklyn, NY 10036, United States',
+      heading: 'Visit the clinic',
+      bodyText: '101010 Hudson, New York',
       bgClass: 'bg-secondary',
       img: marker,
     },
     {
       id: 3,
-      heading: 'Opening Hours',
-      bodyText: '+000 123 456789',
-      bgClass: 'bg-gradient-to-r from-accent to-primary',
+      heading: 'Call reception',
+      bodyText: '+1 (000) 123-4567',
+      bgClass: 'bg-accent',
       img: phone,
     },
   ];
 
   return (
-    <section className="mb-32 mt-16">
-      <div className="w-11/12 mx-auto grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
+    <section className="page-shell -mt-6 mb-24 relative z-10">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
         {ctaData.map((data) => (
           <CtaCard key={data.id} data={data}></CtaCard>
         ))}

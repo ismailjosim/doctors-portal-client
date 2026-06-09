@@ -1,35 +1,35 @@
 import React from 'react';
-import { BiMap, BiPhoneCall, BiEnvelope, BiBowlingBall } from 'react-icons/bi';
+import { BiMap, BiPhoneCall, BiEnvelope, BiTime } from 'react-icons/bi';
 
 const ContactInfo = () => {
   const info = [
     {
       icon: <BiMap />,
-      title: '528th Avenue, Boston, BT 58965',
+      title: '101010 Hudson, New York',
     },
     {
       icon: <BiPhoneCall />,
-      title: '1 800 345 67 56',
+      title: '+1 (000) 123-4567',
     },
     {
       icon: <BiEnvelope />,
-      title: 'info@dental.com',
+      title: 'care@doctorsportal.com',
     },
     {
-      icon: <BiBowlingBall />,
-      title: 'From 8.00AM - To 6.00PM',
+      icon: <BiTime />,
+      title: '8:00 AM - 6:00 PM',
     },
   ];
 
   return (
-    <div className="w-11/12 mx-auto grid lg:grid-cols-4 grid-cols-2 gap-5 justify-center items-center my-10">
+    <div className="page-shell my-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
       {info.map((data, idx) => {
         return (
-          <div key={idx} className="flex flex-col justify-center items-center gap-2">
-            <span className="inline-block bg-accent hover:bg-secondary transition-all duration-500 p-5 rounded-full text-3xl text-white">
+          <div key={idx} className="flex min-h-[170px] flex-col items-center justify-center gap-3 rounded-lg border border-primary/10 bg-white p-6 text-center shadow-lg">
+            <span className="inline-block rounded-lg bg-primary/10 p-4 text-3xl text-primary">
               {data.icon}
             </span>
-            <span className="text-center lg:w-9/12 w-full">{data.title}</span>
+            <span className="text-sm font-medium text-secondary">{data.title}</span>
           </div>
         );
       })}
