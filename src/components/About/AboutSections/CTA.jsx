@@ -17,7 +17,7 @@ const CTA = () => {
             </h3>
             <Link
               to="/appointment"
-              className="btn btn-primary text-white bg-gradient-to-r from-primary to-accent lg:my-10 my-5                        "
+              className="btn btn-primary text-white bg-gradient-to-r from-primary to-accent lg:my-10 my-5"
             >
               Make An Appointment
             </Link>

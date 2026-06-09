@@ -1,12 +1,15 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { FaRegUser, FaSignOutAlt, FaTachometerAlt, FaUserCircle } from 'react-icons/fa';
+import { Link, useLocation } from 'react-router-dom';
+import { FaBars, FaRegUser, FaSignOutAlt, FaTachometerAlt, FaUserCircle } from 'react-icons/fa';
 import { AuthContext } from '../Contexts/AuthProvider';
-import logo from '../assets/images/logo.png';
+import logo from '../assets/dental-only-logo.png';
 import ThemeToggle from '../components/Theme/ThemeToggle';
 
 const Header = () => {
   const { user, userLogout } = useContext(AuthContext);
+  const location = useLocation();
+
+  const isDashboardPage = location.pathname.startsWith('/dashboard');
 
   const handleUserLogout = () => {
     userLogout()
@@ -94,25 +97,15 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-40 border-b border-primary/10 bg-base-100/90 backdrop-blur-xl">
       <div className="navbar page-shell min-h-[76px] px-0 font-semibold">
-        <label htmlFor="dashboard-drawer" tabIndex={2} className="btn btn-ghost lg:hidden">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-            />
-          </svg>
-        </label>
+        {isDashboardPage && (
+          <label htmlFor="dashboard-drawer" tabIndex={2} className="btn btn-ghost lg:hidden">
+            <FaBars className="text-xl" />
+          </label>
+        )}
         <div className="navbar-start min-w-fit">
-          <Link to="/" className="flex items-center gap-3">
-            <img src={logo} alt="Doctors Portal" className="h-11 w-auto" />
+          <Link to="/" className="flex items-center gap-2">
+            <img src={logo} alt="Doctors Portal" className="h-11" />
+            <span className="text-4xl sm:inline-block hidden">Dental</span>
           </Link>
         </div>
         <div className="navbar-end">
