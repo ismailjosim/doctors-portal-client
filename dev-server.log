@@ -20,3 +20,25 @@ Note that the development build is not optimized.
 To create a production build, use npm run build.
 
 webpack compiled [1m[32msuccessfully[39m[22m
+Compiling...
+
+[35m🌼 daisyUI components 2.39.1[0m [0m https://github.com/saadeghi/daisyui
+  [32m✔︎ Including:[0m [0m base, components, themes[1], utilities
+  
+Compiled successfully!
+webpack compiled [1m[32msuccessfully[39m[22m
+Compiling...
+Compiled successfully!
+webpack compiled [1m[32msuccessfully[39m[22m
+Compiling...
+Compiled successfully!
+webpack compiled [1m[32msuccessfully[39m[22m
+Compiling...
+Compiled successfully!
+webpack compiled [1m[32msuccessfully[39m[22m
+Compiling...
+Compiled successfully!
+webpack compiled [1m[32msuccessfully[39m[22m
+Compiling...
+Compiled successfully!
+webpack compiled [1m[32msuccessfully[39m[22m

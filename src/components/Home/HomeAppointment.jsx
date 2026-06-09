@@ -13,8 +13,8 @@ const HomeAppointment = () => {
           <h4 className="font-bold text-accent">Appointment</h4>
           <h2 className="text-3xl font-bold sm:text-4xl">Make an appointment today</h2>
           <p className="my-5 text-base leading-8 text-white/80">
-            Choose a date, see real available chair times, and reserve the visit that works for
-            you. We will keep your booking organized in the dashboard.
+            Choose a date, see real available chair times, and reserve the visit that works for you.
+            We will keep your booking organized in the dashboard.
           </p>
           <div>
             <ButtonStarted />

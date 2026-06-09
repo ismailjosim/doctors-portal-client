@@ -19,7 +19,10 @@ const Hero = () => {
             <a href="/appointment" className="btn btn-primary text-white">
               Book an appointment
             </a>
-            <a href="/team" className="btn btn-outline border-primary text-primary hover:bg-primary">
+            <a
+              href="/team"
+              className="btn btn-outline border-primary text-primary hover:bg-primary"
+            >
               Meet our doctors
             </a>
           </div>
@@ -40,7 +43,11 @@ const Hero = () => {
         </div>
         <div className="relative">
           <div className="glass-card rounded-lg p-6">
-            <img src={heroImg} alt="Dental treatment chair" className="mx-auto max-h-[520px] object-contain" />
+            <img
+              src={heroImg}
+              alt="Dental treatment chair"
+              className="mx-auto max-h-[520px] object-contain"
+            />
           </div>
           <div className="absolute bottom-6 left-0 hidden max-w-xs rounded-lg bg-secondary p-5 text-white shadow-2xl md:block">
             <p className="text-sm text-white/70">Next available</p>

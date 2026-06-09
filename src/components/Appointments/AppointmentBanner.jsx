@@ -16,16 +16,14 @@ const AppointmentBanner = ({ selectedDate, setSelectedDate }) => {
             />
           </div>
           <div className="flex flex-col items-center justify-center text-center lg:text-left">
-            <h1 className="text-4xl font-bold text-secondary lg:text-5xl">Find a chair time that fits your day.</h1>
+            <h1 className="text-4xl font-bold text-secondary lg:text-5xl">
+              Find a chair time that fits your day.
+            </h1>
             <p className="mt-5 max-w-xl leading-8 text-secondary/70">
-              Pick a date to see live availability by treatment. Bookings are saved to your dashboard
-              so payments and visit details stay in one place.
+              Pick a date to see live availability by treatment. Bookings are saved to your
+              dashboard so payments and visit details stay in one place.
             </p>
-            <img
-              src={heroImg}
-              alt="Dental chair"
-              className="mt-6 max-h-80 object-contain"
-            />
+            <img src={heroImg} alt="Dental chair" className="mt-6 max-h-80 object-contain" />
           </div>
         </div>
       </section>

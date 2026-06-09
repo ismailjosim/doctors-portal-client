@@ -3,9 +3,7 @@ import React from 'react';
 const CtaCard = ({ data }) => {
   const { heading, bodyText, bgClass, img } = data;
   return (
-    <div
-      className={`${bgClass} rounded-lg p-6 text-white shadow-xl`}
-    >
+    <div className={`${bgClass} rounded-lg p-6 text-white shadow-xl`}>
       <div className="flex items-center gap-5">
         <img className="h-12 w-12" src={img} alt={heading} />
         <div>

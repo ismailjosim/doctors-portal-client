@@ -56,8 +56,8 @@ const UserLogin = () => {
               Welcome back to your care dashboard.
             </h1>
             <p className="mt-5 max-w-lg leading-8 text-white/72">
-              Review appointments, keep payments organized, and continue your treatment plan
-              without the front-desk back-and-forth.
+              Review appointments, keep payments organized, and continue your treatment plan without
+              the front-desk back-and-forth.
             </p>
           </div>
 

@@ -22,7 +22,12 @@ const ContactForm = () => {
             />
           </div>
           <div>
-            <input id="name" type="text" placeholder="Subject" className="input input-bordered w-full" />
+            <input
+              id="name"
+              type="text"
+              placeholder="Subject"
+              className="input input-bordered w-full"
+            />
           </div>
           <div>
             <textarea

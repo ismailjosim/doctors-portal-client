@@ -15,29 +15,19 @@ const Header = () => {
   const menuItems = (
     <>
       <li>
-        <Link to="/">
-          Home
-        </Link>
+        <Link to="/">Home</Link>
       </li>
       <li>
-        <Link to="/about">
-          About
-        </Link>
+        <Link to="/about">About</Link>
       </li>
       <li>
-        <Link to="/appointment">
-          Book Visit
-        </Link>
+        <Link to="/appointment">Book Visit</Link>
       </li>
       <li>
-        <Link to="/team">
-          Team
-        </Link>
+        <Link to="/team">Team</Link>
       </li>
       <li>
-        <Link to="/contact">
-          Contact
-        </Link>
+        <Link to="/contact">Contact</Link>
       </li>
       {user?.uid ? (
         <>
@@ -45,24 +35,17 @@ const Header = () => {
             <p className="text-secondary/70">{user.displayName}</p>
           </li>
           <li>
-            <Link to="/dashboard">
-              Dashboard
-            </Link>
+            <Link to="/dashboard">Dashboard</Link>
           </li>
           <li>
-            <button
-              onClick={handleUserLogout}
-              className="btn btn-sm btn-primary text-white"
-            >
+            <button onClick={handleUserLogout} className="btn btn-sm btn-primary text-white">
               Logout
             </button>
           </li>
         </>
       ) : (
         <li>
-          <Link to="/login">
-            Login
-          </Link>
+          <Link to="/login">Login</Link>
         </li>
       )}
     </>
