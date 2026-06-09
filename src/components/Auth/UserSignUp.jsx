@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaShieldAlt, FaTooth } from 'react-icons/fa';
@@ -17,12 +17,20 @@ const UserSignUp = () => {
 
   const [signupError, setSignupError] = useState('');
   const [newUserEmail, setNewUserEmail] = useState('');
-  const [token] = useToken(newUserEmail);
+  const [token, tokenError] = useToken(newUserEmail);
   const navigate = useNavigate();
 
-  if (token) {
-    navigate('/');
-  }
+  useEffect(() => {
+    if (token) {
+      navigate('/');
+    }
+  }, [navigate, token]);
+
+  useEffect(() => {
+    if (tokenError) {
+      setSignupError(tokenError);
+    }
+  }, [tokenError]);
 
   const strongRegex = new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])');
 

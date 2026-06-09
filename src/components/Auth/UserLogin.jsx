@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaLock, FaRegCalendarCheck } from 'react-icons/fa';
@@ -23,12 +23,20 @@ const UserLogin = () => {
 
   // todo: set user email for jwt verification
   const [loginUserEmail, setLoginUserEmail] = useState('');
-  const [token] = useToken(loginUserEmail);
+  const [token, tokenError] = useToken(loginUserEmail);
 
   // footer: navigate when we get token
-  if (token) {
-    navigate(from, { replace: true });
-  }
+  useEffect(() => {
+    if (token) {
+      navigate(from, { replace: true });
+    }
+  }, [from, navigate, token]);
+
+  useEffect(() => {
+    if (tokenError) {
+      setLoginError(tokenError);
+    }
+  }, [tokenError]);
 
   // TODO: User Login Function
   const onSubmit = (data) => {
